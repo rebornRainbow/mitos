@@ -60,7 +60,7 @@ kfree(fp) 归还fp所在的页面
 定义一个名为vmprint()的函数。它应该接受一个pagetable_t参数，并按照下面的格式打印该pagetable。在exec.c中的返回argc之前插入if(p->pid==1) vmprint(p->pagetable)，以打印第一个进程的页表。如果您通过了make grade的pte打印测试，您将获得此部分实验的完整分数。
 现在，当您启动xv6时，它应该打印类似于以下输出的内容，描述第一个进程在执行init时的页表：
 
-
+```c
 page table 0x0000000087f6b000
  ..0: pte 0x0000000021fd9c01 pa 0x0000000087f67000
  .. ..0: pte 0x0000000021fd9801 pa 0x0000000087f66000
@@ -74,6 +74,7 @@ page table 0x0000000087f6b000
  .. .. ..510: pte 0x0000000021fdd007 pa 0x0000000087f74000
  .. .. ..511: pte 0x0000000020001c0b pa 0x0000000080007000
 init: starting sh
+```
   
 第一行显示vmprint的参数。在此之后，每个PTE都有一行，
 包括指向树中更深层页表页的PTE。每个PTE行的缩进由".."
